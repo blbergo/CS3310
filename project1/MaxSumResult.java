@@ -19,7 +19,7 @@ public class MaxSumResult {
     }
 
     public String toString() {
-        return String.format("--------------------\nMethod: %s\nMax Sum: %d\nStart Index: %d\nEnd Index: %d\nTime Elapsed: %d ns",
+        return String.format("---------------------------\nMethod: %s\nMax Sum: %d\nStart Index: %d\nEnd Index: %d\nTime Elapsed: %d ns",
                 methodName, maxSum, startIndex, endIndex, timeElapsed);
     }
 }

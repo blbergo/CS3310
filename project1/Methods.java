@@ -1,5 +1,7 @@
 package project1;
 
+import java.util.ArrayList;
+
 public class Methods {
     public static int max3(int a, int b, int c) {
         return Math.max(a, Math.max(b, c));
@@ -83,5 +85,27 @@ public class Methods {
             return new MaxSumResult(maxLeftBorderSum + maxRightBorderSum, leftIndex, rightIndex, "Divide and Conquer");
         }
 
+    }
+
+    public static MaxSumResult dynamicProgramming(int[] arr) {
+        int maxSum = Integer.MIN_VALUE;
+        int startIndex = 0;
+        int endIndex = 0;
+        ArrayList<Integer> dp = new ArrayList<Integer>(arr.length);
+
+        dp.add(arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            dp.add(Math.max(arr[i], dp.get(i - 1) + arr[i]));
+        }
+
+        for (int i = 0; i < dp.size(); i++) {
+            if (dp.get(i) > maxSum) {
+                startIndex = endIndex;
+                maxSum = dp.get(i);
+                endIndex = i;
+            }
+        }
+
+        return new MaxSumResult(maxSum, startIndex, endIndex, "Dynamic Programming");
     }
 }

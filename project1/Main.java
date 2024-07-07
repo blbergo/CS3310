@@ -1,5 +1,7 @@
 package project1;
 
+import java.util.Arrays;
+
 public class Main {
     public static void testMethod(MethodType method, int[] arr) {
         MaxSumResult result = null;
@@ -24,14 +26,35 @@ public class Main {
                 end = System.nanoTime();
                 result.setTimeElapsed(end - start);
                 break;
+            case DYANMIC_PROGRAMMING:
+                start = System.nanoTime();
+                result = Methods.dynamicProgramming(arr);
+                end = System.nanoTime();
+                result.setTimeElapsed(end - start);
+                break;
         }
         System.out.println(result);
     }
 
     public static void main(String[] args) {
-        int[] arr = { -2, 11, -4, 13, -5, -2 };
+        System.out.println("Iteration 1\n---------------------------");
+        int[] arr = DataGen.generateInput();
+        System.out.println("Generated input:");
+        System.out.println(Arrays.toString(arr));
+
         testMethod(MethodType.EXHUASTIVE, arr);
         testMethod(MethodType.QUADRATIC, arr);
         testMethod(MethodType.DIVIDE_AND_CONQUER, arr);
+        testMethod(MethodType.DYANMIC_PROGRAMMING, arr);
+
+        System.out.println("\nIteration 2\n---------------------------");
+        int[] arr2 = DataGen.generateInput();
+        System.out.println("Generated input:");
+        System.out.println(Arrays.toString(arr2));
+
+        testMethod(MethodType.EXHUASTIVE, arr2);
+        testMethod(MethodType.QUADRATIC, arr2);
+        testMethod(MethodType.DIVIDE_AND_CONQUER, arr2);
+        testMethod(MethodType.DYANMIC_PROGRAMMING, arr2);
     }
 }
