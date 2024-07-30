@@ -1,3 +1,5 @@
+package project1;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -57,7 +59,6 @@ public class Main {
         testMethod(MethodType.DYANMIC_PROGRAMMING, arr2);
     }
 }
-
 
 public class DataGen {
     public int[] data;

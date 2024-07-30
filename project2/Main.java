@@ -1,8 +1,6 @@
 package project2;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Optional;
 import java.util.Random;
 
 public class Main {
